@@ -1,0 +1,3 @@
+aiodns==2.0.0
+aiofile==3.3.3
+aiohttp==3.7.3
