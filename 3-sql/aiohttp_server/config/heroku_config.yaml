@@ -1,0 +1,12 @@
+common:
+  # каждый раз heroku выделяет разные порты,
+  # поэтому необходимо вынести это в переменную
+  port: $PORT
+postgres:
+  database_url: $DATABASE_URL
+  require_ssl: true
+telegram:
+  # приватные данные, поэтому лучше вынести их в переменные окружения, который
+  # проставляются в heroku
+  token: $TELEGRAM_BOT_TOKEN
+  my_chat_id: $TELEGRAM_CHAT
