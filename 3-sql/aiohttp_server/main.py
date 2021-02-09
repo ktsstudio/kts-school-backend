@@ -15,15 +15,12 @@ def setup_config(application: web.Application) -> None:
 
 
 def setup_routes(application: web.Application) -> None:
-    pass
-    # from app.forum.routes import setup_routes as setup_forum_routes
-    #
-    # setup_forum_routes(application)
+    from app.avia.routes import setup_routes as setup_avia_routes
 
+    setup_avia_routes(application)
 
 def setup_accessors(application: web.Application) -> None:
     database_accessor.setup(application)
-
 
 def setup_middlewares(application: web.Application) -> None:
     application.middlewares.append(error_middleware)
@@ -43,8 +40,9 @@ def setup_external_libraries(application: web.Application) -> None:
     )
 
 
-def setup_logging(_: web.Application) -> None:
-    logging.basicConfig(level=logging.INFO)
+def setup_logging(application: web.Application) -> None:
+    logging.basicConfig(level=logging.DEBUG)
+    application.logger = logging.getLogger(__name__)
 
 
 def setup_app(application: web.Application) -> None:

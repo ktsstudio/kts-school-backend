@@ -5,6 +5,9 @@ from aiohttp import web
 
 class PostgresAccessor:
     def __init__(self) -> None:
+        from app.avia.models import Airport
+
+        self.airport = Airport
         self.db = None
 
     def setup(self, application: web.Application) -> None:
